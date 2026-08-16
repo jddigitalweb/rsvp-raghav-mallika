@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#5d2031">
+  <title>Raghav & Mallika | Wedding RSVP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <section class="screen hero active" id="hero">
+    <div class="hero-photo-wrap"><img class="hero-photo" src="assets/couple.jpg" alt="Raghav and Mallika"><div class="hero-tint"></div></div>
+    <div class="grain"></div>
+
+    <div class="hero-top">
+      <span class="monogram">R <i>&amp;</i> M</span>
+      <span class="invite-label">A WEDDING INVITATION</span>
+    </div>
+
+    <div class="hero-content">
+      <p class="kicker">TOGETHER WITH THEIR FAMILIES</p>
+      <h1>Raghav <span>&amp;</span> Mallika</h1>
+      <div class="ornament"><span></span><b>✦</b><span></span></div>
+      <p class="place">Arika Retreat · Jaipur</p>
+      <p class="wedding-date">12 <small>&amp;</small> 13 November 2026</p>
+
+      <div class="countdown-card">
+        <div class="countdown-title">THE CELEBRATION BEGINS IN</div>
+        <div class="countdown">
+          <div><strong id="days">00</strong><em>DAYS</em></div>
+          <i>:</i>
+          <div><strong id="hours">00</strong><em>HRS</em></div>
+          <i>:</i>
+          <div><strong id="minutes">00</strong><em>MIN</em></div>
+          <i>:</i>
+          <div><strong id="seconds">00</strong><em>SEC</em></div>
+        </div>
+      </div>
+
+      <button class="gold-button" id="startRsvp">
+        <span>RSVP</span><b>→</b>
+      </button>
+      <p class="scroll-hint">We'd love to celebrate with you</p>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="screen paper" id="rsvp">
+    <div class="paper-decor decor-one">❧</div>
+    <div class="paper-decor decor-two">❧</div>
+    <div class="nav">
+      <button class="back" data-go="hero">←</button>
+      <span class="nav-mark">R &amp; M</span>
+      <span class="step">01 / 02</span>
+    </div>
+
+    <div class="content narrow">
+      <p class="section-kicker">YOUR PRESENCE IS THE GREATEST GIFT</p>
+      <h2>Will you join us?</h2>
+      <p class="lead">Two beautiful days, one unforgettable celebration. Please enter your details and let us know.</p>
+
+      <div class="field rsvp-field">
+        <label>FULL NAME <span>*</span></label>
+        <input name="rsvp-name" id="rsvpName" type="text" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="field rsvp-field">
+        <label>PHONE NUMBER <span>*</span></label>
+        <input name="rsvp-phone" id="rsvpPhone" type="tel" inputmode="tel" value="+91 " placeholder="+91 98765 43210" required>
+      </div>
+
+      <p class="error" id="rsvpError"></p>
+
+      <div class="rsvp-options">
+        <button class="rsvp-option" data-rsvp="Yes">
+          <span class="circle">✓</span>
+          <span><strong>YES, I'LL BE THERE</strong><small>Can't wait to celebrate with you</small></span>
+          <b>→</b>
+        </button>
+        <button class="rsvp-option" data-rsvp="No">
+          <span class="circle">✕</span>
+          <span><strong>NO, I'M SORRY</strong><small>We'll miss having you with us</small></span>
+          <b>→</b>
+        </button>
+      </div>
+
+      <div class="tiny-note">Please submit one RSVP per guest.</div>
+    </div>
+  </section>
+
+  <!-- DETAILS -->
+  <section class="screen paper" id="details">
+    <div class="paper-decor decor-one">❧</div>
+    <div class="nav">
+      <button class="back" id="startRsvp">←</button>
+      <span class="nav-mark">R &amp; M</span>
+      <span class="step">02 / 02</span>
+    </div>
+
+    <div class="content">
+      <p class="section-kicker">LET US PLAN FOR YOU</p>
+      <h2>A few details</h2>
+      <p class="lead">Help us make your stay comfortable and your celebrations seamless.</p>
+
+      <form id="rsvpForm">
+        <input class="trap" type="text" name="website" tabindex="-1" autocomplete="off">
+
+        <div class="date-fields">
+          <div class="field">
+            <label>DATE OF ARRIVAL <span>*</span></label>
+            <select name="arrival" id="arrival" required>
+              <option value="">Select arrival date</option>
+              <option value="11 November 2026">11th November 2026</option>
+              <option value="12 November 2026">12th November 2026</option>
+              <option value="13 November 2026">13th November 2026</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>DATE OF DEPARTURE <span>*</span></label>
+            <select name="departure" id="departure" required>
+              <option value="">Select departure date</option>
+              <option value="12 November 2026">12th November 2026</option>
+              <option value="13 November 2026">13th November 2026</option>
+              <option value="14 November 2026">14th November 2026</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>TIME OF ARRIVAL <span>*</span></label>
+          <div class="time-picker-wrap">
+            <div class="time-picker">
+              <div class="picker-col" id="picker-hour"></div>
+              <div class="picker-sep">:</div>
+              <div class="picker-col" id="picker-minute"></div>
+              <div class="picker-col picker-col-ampm" id="picker-ampm"></div>
+              <div class="picker-highlight"></div>
+              <div class="picker-fade picker-fade-top"></div>
+              <div class="picker-fade picker-fade-bottom"></div>
+            </div>
+            <input type="hidden" name="time" id="time" value="12:00 PM">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>TIME OF DEPARTURE <span>*</span></label>
+          <div class="time-picker-wrap">
+            <div class="time-picker">
+              <div class="picker-col" id="picker-dep-hour"></div>
+              <div class="picker-sep">:</div>
+              <div class="picker-col" id="picker-dep-minute"></div>
+              <div class="picker-col picker-col-ampm" id="picker-dep-ampm"></div>
+              <div class="picker-highlight"></div>
+              <div class="picker-fade picker-fade-top"></div>
+              <div class="picker-fade picker-fade-bottom"></div>
+            </div>
+            <input type="hidden" name="dep-time" id="dep-time" value="12:00 PM">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>COMING FROM <span>*</span></label>
+          <input name="from" type="text" placeholder="City / location" required>
+        </div>
+
+        <div class="field">
+          <label>MODE OF TRANSPORT <span>*</span></label>
+          <select name="transport" required>
+            <option value="">Choose transport</option>
+            <option>Flight</option>
+            <option>Train</option>
+            <option>Bus</option>
+            <option>Car</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="events hidden" id="eventsSection">
+          <div class="events-head">
+            <p>FUNCTIONS ATTENDING</p>
+            <span>Select the functions you will attend</span>
+          </div>
+
+          <label class="event" id="event-mayra" data-date="12">
+            <input type="checkbox" name="mayra" value="Yes">
+            <span class="box"></span>
+            <span class="event-copy"><strong>Mayra Lunch</strong><small>12 Nov · 12:00 PM onwards</small></span>
+            <span class="event-arrow">✦</span>
+          </label>
+
+          <label class="event" id="event-sangeet" data-date="12">
+            <input type="checkbox" name="sangeet" value="Yes">
+            <span class="box"></span>
+            <span class="event-copy"><strong>Sangeet</strong><small>12 Nov · 7:00 PM</small></span>
+            <span class="event-arrow">✦</span>
+          </label>
+
+          <label class="event" id="event-haldi" data-date="13">
+            <input type="checkbox" name="haldi" value="Yes">
+            <span class="box"></span>
+            <span class="event-copy"><strong>Haldi</strong><small>13 Nov · 10:00 AM</small></span>
+            <span class="event-arrow">✦</span>
+          </label>
+
+          <label class="event" id="event-reception" data-date="13">
+            <input type="checkbox" name="reception" value="Yes">
+            <span class="box"></span>
+            <span class="event-copy"><strong>Reception</strong><small>13 Nov · 7:00 PM</small></span>
+            <span class="event-arrow">✦</span>
+          </label>
+        </div>
+
+        <p class="error" id="error"></p>
+
+        <button class="submit-button" id="submitButton" type="submit">
+          <span id="submitText">CONFIRM RSVP</span>
+          <span id="spinner" class="spinner hidden"></span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- SUCCESS -->
+  <section class="screen success" id="success">
+    <div class="success-glow"></div>
+    <div class="success-inner">
+      <div class="success-symbol">✦</div>
+      <p class="section-kicker">RSVP RECEIVED</p>
+      <h2 id="successTitle">We'll see you in Jaipur!</h2>
+      <p id="successText">Your details have been safely recorded. We can't wait to celebrate with you.</p>
+      <div class="divider"></div>
+      <p class="signature">Raghav &nbsp;&nbsp;<span>&amp;</span>&nbsp;&nbsp; Mallika</p>
+      <p class="success-date">12 &amp; 13 November 2026<br>Arika Retreat, Jaipur</p>
+      <a class="maps-btn" href="https://maps.google.com/maps?vet=10CAAQoqAOahcKEwiY3anqx6WWAxUAAAAAHQAAAAAQCQ..i&rlz=1C1RLNS_enIN1018IN1018&pvq=Cg0vZy8xMXc4Ym5zODl2IhQKDmFydGlrYSByZXRyZWF0EAIYAw&lqi=ChVhcnRpa2EgcmV0cmVhdCBqYWlwdXJIusKwqqG7gIAIWiEQABABGAAYARgCIhVhcnRpa2EgcmV0cmVhdCBqYWlwdXKSAQxyZXNvcnRfaG90ZWw&fvr=1&cs=1&um=1&ie=UTF-8&fb=1&gl=in&sa=X&ftid=0x396dad00076fc0fd:0xe397e8bf1d9771d9" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        View on Google Maps
+      </a>
+    </div>
+  </section>
+
+</div>
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
