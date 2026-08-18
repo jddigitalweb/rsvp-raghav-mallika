@@ -17,7 +17,7 @@ button,input,select{font:inherit}button{cursor:pointer;-webkit-tap-highlight-col
 .kicker{margin:0 0 8px;font-size:8px;font-weight:700;letter-spacing:.25em}
 .section-kicker{margin:0 0 8px;font-size:10px;font-weight:700;letter-spacing:.25em}
 h1,h2{font-family:"Cormorant Garamond",serif;font-weight:500}
-h1{margin:0;font-size:clamp(54px,15vw,76px);line-height:.84;letter-spacing:-.045em}
+h1{margin:0;font-size:clamp(44px,12vw,68px);line-height:.84;letter-spacing:-.045em}
 h1 span{font-family:"Great Vibes",cursive;color:var(--gold-light);font-size:.8em}
 .ornament{display:flex;align-items:center;justify-content:center;gap:8px;margin:16px auto 8px}.ornament span{width:38px;height:1px;background:var(--gold-light);opacity:.75}.ornament b{font-size:9px;color:var(--gold-light)}
 .place{margin:0;font:500 24px "Cormorant Garamond",serif}.wedding-date{margin:6px 0 16px;font-size:14px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}.wedding-date small{font:400 19px "Great Vibes",cursive;color:var(--gold-light)}
@@ -69,5 +69,5 @@ form{width:100%;margin:20px 0 0}.field{width:100%;margin-bottom:14px}.field labe
 .success{min-height:100dvh;display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;background:radial-gradient(circle at 50% 0,rgba(199,161,93,.22),transparent 32%),var(--cream);text-align:center}.success.active{display:flex}.success-inner{width:100%;max-width:390px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.success-symbol{color:var(--gold);font-size:28px;margin-bottom:14px}.success-inner h2{font-size:49px;text-align:center}.success-inner p{color:var(--muted);font-size:12px;line-height:1.7;text-align:center}.divider{width:54px;height:1px;margin:22px auto;background:var(--gold)}.signature{margin:0!important;color:var(--wine)!important;font:32px "Great Vibes",cursive!important;text-align:center}.signature span{color:var(--gold)}.success-date{color:var(--wine-dark)!important;font:500 17px/1.35 "Cormorant Garamond",serif!important;text-align:center;margin-bottom:20px!important}
 .maps-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;margin-top:8px;padding:11px 22px;background:var(--wine);color:#fff;font-size:11px;font-weight:700;letter-spacing:.12em;border-radius:999px;text-decoration:none;box-shadow:0 8px 20px rgba(93,32,49,.25);transition:transform .15s,box-shadow .15s}.maps-btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(93,32,49,.35)}.maps-btn svg{flex-shrink:0}
 
-@media(max-width:390px){.hero-photo-wrap{height:57dvh;min-height:390px}.hero-content{padding-top:47dvh;padding-left:17px;padding-right:17px}h1{font-size:53px}.content{padding-left:17px;padding-right:17px}h2{font-size:43px}}
-@media(max-width:350px){.hero-photo-wrap{height:54dvh;min-height:370px}.hero-content{padding-top:44dvh}h1{font-size:48px}.countdown strong{font-size:24px}}
+@media(max-width:390px){.hero-photo-wrap{height:57dvh;min-height:390px}.hero-content{padding-top:47dvh;padding-left:17px;padding-right:17px}h1{font-size:44px}.content{padding-left:17px;padding-right:17px}h2{font-size:43px}}
+@media(max-width:350px){.hero-photo-wrap{height:54dvh;min-height:370px}.hero-content{padding-top:44dvh}h1{font-size:40px}.countdown strong{font-size:24px}}
