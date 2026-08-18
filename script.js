@@ -3,16 +3,26 @@ document.addEventListener('DOMContentLoaded', () => {
   let guestName = '';
   let guestPhone = '';
 
-  // ── Apple-style drum roll time picker ──────────────────────────────
-  function initTimePicker(hourId, minId, ampmId, hiddenId, defaultHourIdx, defaultAmpmIdx) {
-    const ITEM_H = 44;
-    const PAD    = 2;
+  // ── Apple-style drum roll time picker with collapsible toggle ──────
+  function initTimePicker(hourId, minId, ampmId, hiddenId, triggerId, dropdownId, defaultHourIdx, defaultAmpmIdx) {
+    const ITEM_H      = 44;
+    const PAD         = 2;
+    const CONTAINER_H = 180;
+    // scrollTop needed to center real item[idx] in container:
+    // = (PAD + idx) * ITEM_H + ITEM_H/2  - CONTAINER_H/2
+    // = PAD * ITEM_H - (CONTAINER_H - ITEM_H) / 2  + idx * ITEM_H
+    const SNAP_OFFSET = PAD * ITEM_H - Math.floor((CONTAINER_H - ITEM_H) / 2);
+    // = 2*44 - floor(136/2) = 88 - 68 = 20
 
-    const hourCol  = document.getElementById(hourId);
-    const minCol   = document.getElementById(minId);
-    const ampmCol  = document.getElementById(ampmId);
-    const hidden   = document.getElementById(hiddenId);
-    if (!hourCol || !minCol || !ampmCol || !hidden) return;
+    const hourCol   = document.getElementById(hourId);
+    const minCol    = document.getElementById(minId);
+    const ampmCol   = document.getElementById(ampmId);
+    const hidden    = document.getElementById(hiddenId);
+    const trigger   = document.getElementById(triggerId);
+    const dropdown  = document.getElementById(dropdownId);
+    if (!hourCol || !minCol || !ampmCol || !hidden || !trigger || !dropdown) return;
+
+    let opened = false;
 
     function buildCol(col, items) {
       col.innerHTML = '';
@@ -42,34 +52,57 @@ document.addEventListener('DOMContentLoaded', () => {
     buildCol(minCol,  minutes);
     buildCol(ampmCol, ampmArr);
 
-    function scrollTo(col, idx) { col.scrollTop = idx * ITEM_H; }
+    // Correctly center real item[idx] in the container
+    function scrollTo(col, idx) {
+      col.scrollTop = SNAP_OFFSET + idx * ITEM_H;
+    }
 
-    scrollTo(hourCol,  defaultHourIdx); // e.g. 11 = "12"
-    scrollTo(minCol,   0);              // "00"
-    scrollTo(ampmCol,  defaultAmpmIdx); // 0=AM, 1=PM
-
+    // Correctly decode scrollTop back to real item index
     function getIdx(col, max) {
-      return Math.max(0, Math.min(Math.round(col.scrollTop / ITEM_H), max - 1));
+      return Math.max(0, Math.min(Math.round((col.scrollTop - SNAP_OFFSET) / ITEM_H), max - 1));
     }
 
     function syncHidden() {
       const h = hours[getIdx(hourCol, hours.length)];
       const m = minutes[getIdx(minCol, minutes.length)];
       const a = ampmArr[getIdx(ampmCol, ampmArr.length)];
-      hidden.value = `${h}:${m} ${a}`;
+      const val = `${h}:${m} ${a}`;
+      hidden.value = val;
+      trigger.value = val;
     }
 
     [hourCol, minCol, ampmCol].forEach(col =>
       col.addEventListener('scroll', syncHidden, { passive: true })
     );
 
+    // Toggle dropdown open/close on trigger click
+    trigger.addEventListener('click', () => {
+      const isHidden = dropdown.classList.contains('hidden');
+      // Close all time dropdowns first
+      document.querySelectorAll('.time-picker-dropdown').forEach(d => d.classList.add('hidden'));
+      document.querySelectorAll('.time-trigger').forEach(t => t.classList.remove('active'));
+
+      if (isHidden) {
+        dropdown.classList.remove('hidden');
+        trigger.classList.add('active');
+        // Only set default positions on first open; preserve selection on re-open
+        if (!opened) {
+          scrollTo(hourCol, defaultHourIdx);
+          scrollTo(minCol, 0);
+          scrollTo(ampmCol, defaultAmpmIdx);
+          opened = true;
+        }
+        syncHidden();
+      }
+    });
+
     syncHidden();
   }
 
-  // Arrival time  — default 12:00 PM
-  initTimePicker('picker-hour',     'picker-minute',     'picker-ampm',     'time',     11, 1);
+  // Arrival time — default 12:00 PM
+  initTimePicker('picker-hour', 'picker-minute', 'picker-ampm', 'time', 'time-trigger-arrival', 'time-dropdown-arrival', 11, 1);
   // Departure time — default 12:00 PM
-  initTimePicker('picker-dep-hour', 'picker-dep-minute', 'picker-dep-ampm', 'dep-time', 11, 1);
+  initTimePicker('picker-dep-hour', 'picker-dep-minute', 'picker-dep-ampm', 'dep-time', 'time-trigger-departure', 'time-dropdown-departure', 11, 1);
   // ───────────────────────────────────────────────────────────────────
 
   // Screen navigation helper

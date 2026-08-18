@@ -7,9 +7,9 @@ button,input,select{font:inherit}button{cursor:pointer;-webkit-tap-highlight-col
 
 /* HERO */
 .hero{position:relative;min-height:100dvh;background:var(--wine-dark);color:#fff;overflow:hidden}
-.hero-photo-wrap{position:absolute;top:0;left:0;width:100%;height:61dvh;min-height:400px;background:#32131e;overflow:hidden}
-.hero-photo{display:block;width:100%;height:100%;object-fit:contain;object-position:center top;background:#32131e}
-.hero-tint{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(35,13,20,0) 0%,rgba(35,13,20,.03) 35%,rgba(35,13,20,.15) 55%,rgba(48,11,22,.78) 84%,rgba(48,11,22,1) 100%);pointer-events:none}
+.hero-photo-wrap{position:absolute;top:0;left:0;width:100%;height:61dvh;min-height:400px;background:var(--wine-dark);overflow:hidden}
+.hero-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:top center;background:var(--wine-dark);margin-top:-50px}
+.hero-tint{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(61,22,34,0) 0%,rgba(61,22,34,.03) 35%,rgba(61,22,34,.15) 55%,rgba(61,22,34,.78) 84%,rgba(61,22,34,1) 100%);pointer-events:none}
 .grain{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.04}
 .hero-top{position:absolute;z-index:10;top:calc(20px + env(safe-area-inset-top));left:20px;right:20px;display:flex;justify-content:space-between;align-items:center}
 .monogram{font:500 25px "Cormorant Garamond",serif;letter-spacing:.08em}.monogram i{font-style:normal;color:var(--gold-light);font-size:15px}.invite-label{font-size:8px;letter-spacing:.2em;opacity:.8}
@@ -28,7 +28,7 @@ h1 span{font-family:"Great Vibes",cursive;color:var(--gold-light);font-size:.8em
 /* PAPER */
 .paper{position:relative;min-height:100dvh;background:radial-gradient(circle at 100% 0,rgba(199,161,93,.16),transparent 25%),radial-gradient(circle at 0 100%,rgba(93,32,49,.07),transparent 28%),var(--cream);overflow-x:hidden;overflow-y:auto}
 .nav{position:absolute;z-index:20;top:calc(16px + env(safe-area-inset-top));left:18px;right:18px;display:grid;grid-template-columns:40px 1fr 40px;align-items:center}
-.back{width:36px;height:36px;border:1px solid var(--line);border-radius:50%;background:rgba(255,255,255,.7);color:var(--wine);font-size:17px}
+.back{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;border:1px solid var(--line);border-radius:50%;background:rgba(255,255,255,.7);color:var(--wine);font-size:16px;line-height:1}
 .nav-mark{text-align:center;font:500 23px "Cormorant Garamond",serif;color:var(--wine)}.step{text-align:right;color:var(--muted);font-size:7px;letter-spacing:.14em}
 .content{width:100%;padding:82px 20px 35px}.content.narrow{max-width:460px;margin:auto;text-align:center}
 .section-kicker{color:var(--wine)}h2{margin:0;color:var(--wine-dark);font-size:48px;line-height:.9}.lead{width:100%;max-width:100%;margin:14px 0 27px;padding:0;color:var(--muted);font-size:14px;line-height:1.65}
@@ -48,16 +48,20 @@ form{width:100%;margin:20px 0 0}.field{width:100%;margin-bottom:14px}.field labe
 
 /* TIME PICKER */
 .time-picker-wrap{position:relative;margin:0 0 0}
-.time-picker{position:relative;display:flex;align-items:stretch;height:220px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:16px;overflow:clip}
-.picker-col{flex:1;height:220px;overflow-y:scroll;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain;touch-action:pan-y;will-change:scroll-position;scrollbar-width:none;-ms-overflow-style:none}
+.time-trigger{display:block;width:100%;min-height:48px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.9);padding:11px 14px;outline:none;color:var(--ink);font-size:13px;font-weight:600;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235d2031' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpolyline points='12 6 12 12 16 14'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px}
+.time-trigger:focus,.time-trigger.active{border-color:var(--gold);box-shadow:0 0 0 3px rgba(199,161,93,.15)}
+.time-picker-dropdown{margin-top:8px;transition:all .2s ease}
+.time-picker-dropdown.hidden{display:none!important}
+.time-picker{position:relative;display:flex;align-items:stretch;height:180px;background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:14px;overflow:clip;box-shadow:0 8px 24px rgba(93,32,49,.08)}
+.picker-col{flex:1;height:180px;overflow-y:scroll;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain;touch-action:pan-y;will-change:scroll-position;scrollbar-width:none;-ms-overflow-style:none}
 .picker-col::-webkit-scrollbar{display:none}
 .picker-col-ampm{flex:0 0 68px}
-.picker-item{height:44px;display:flex;align-items:center;justify-content:center;scroll-snap-align:center;font-size:21px;font-weight:500;color:var(--ink);font-family:"DM Sans",sans-serif;cursor:pointer;transition:color .15s}
+.picker-item{height:44px;display:flex;align-items:center;justify-content:center;scroll-snap-align:center;font-size:20px;font-weight:500;color:var(--ink);font-family:"DM Sans",sans-serif;cursor:pointer;transition:color .15s}
 .picker-col-ampm .picker-item{font-size:15px;font-weight:700;letter-spacing:.08em;color:var(--wine-dark)}
 .picker-item.picker-pad{visibility:hidden;pointer-events:none}
-.picker-sep{display:flex;align-items:center;justify-content:center;padding:0 2px;font-size:24px;font-weight:700;color:var(--ink);flex-shrink:0;z-index:4;pointer-events:none;margin-bottom:2px}
+.picker-sep{display:flex;align-items:center;justify-content:center;padding:0 2px;font-size:22px;font-weight:700;color:var(--ink);flex-shrink:0;z-index:4;pointer-events:none;margin-bottom:2px}
 .picker-highlight{position:absolute;left:8px;right:8px;top:50%;height:44px;transform:translateY(-50%);background:rgba(93,32,49,.08);border-radius:10px;pointer-events:none;z-index:2;border-top:1px solid rgba(93,32,49,.12);border-bottom:1px solid rgba(93,32,49,.12)}
-.picker-fade{position:absolute;left:0;right:0;height:92px;pointer-events:none;z-index:3}
+.picker-fade{position:absolute;left:0;right:0;height:68px;pointer-events:none;z-index:3}
 .picker-fade-top{top:0;background:linear-gradient(to bottom,rgba(250,245,237,.97) 15%,transparent)}
 .picker-fade-bottom{bottom:0;background:linear-gradient(to top,rgba(250,245,237,.97) 15%,transparent)}
 

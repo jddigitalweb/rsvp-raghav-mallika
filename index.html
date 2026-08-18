@@ -15,7 +15,7 @@
 
   <!-- HERO -->
   <section class="screen hero active" id="hero">
-    <div class="hero-photo-wrap"><img class="hero-photo" src="assets/couple.jpg" alt="Raghav and Mallika"><div class="hero-tint"></div></div>
+    <div class="hero-photo-wrap"><img class="hero-photo" src="assets/couple_new.jpeg" alt="Raghav and Mallika"><div class="hero-tint"></div></div>
     <div class="grain"></div>
 
     <div class="hero-top">
@@ -135,14 +135,17 @@
         <div class="field">
           <label>TIME OF ARRIVAL <span>*</span></label>
           <div class="time-picker-wrap">
-            <div class="time-picker">
-              <div class="picker-col" id="picker-hour"></div>
-              <div class="picker-sep">:</div>
-              <div class="picker-col" id="picker-minute"></div>
-              <div class="picker-col picker-col-ampm" id="picker-ampm"></div>
-              <div class="picker-highlight"></div>
-              <div class="picker-fade picker-fade-top"></div>
-              <div class="picker-fade picker-fade-bottom"></div>
+            <input type="text" class="time-trigger" id="time-trigger-arrival" value="12:00 PM" readonly>
+            <div class="time-picker-dropdown hidden" id="time-dropdown-arrival">
+              <div class="time-picker">
+                <div class="picker-col" id="picker-hour"></div>
+                <div class="picker-sep">:</div>
+                <div class="picker-col" id="picker-minute"></div>
+                <div class="picker-col picker-col-ampm" id="picker-ampm"></div>
+                <div class="picker-highlight"></div>
+                <div class="picker-fade picker-fade-top"></div>
+                <div class="picker-fade picker-fade-bottom"></div>
+              </div>
             </div>
             <input type="hidden" name="time" id="time" value="12:00 PM">
           </div>
@@ -151,14 +154,17 @@
         <div class="field">
           <label>TIME OF DEPARTURE <span>*</span></label>
           <div class="time-picker-wrap">
-            <div class="time-picker">
-              <div class="picker-col" id="picker-dep-hour"></div>
-              <div class="picker-sep">:</div>
-              <div class="picker-col" id="picker-dep-minute"></div>
-              <div class="picker-col picker-col-ampm" id="picker-dep-ampm"></div>
-              <div class="picker-highlight"></div>
-              <div class="picker-fade picker-fade-top"></div>
-              <div class="picker-fade picker-fade-bottom"></div>
+            <input type="text" class="time-trigger" id="time-trigger-departure" value="12:00 PM" readonly>
+            <div class="time-picker-dropdown hidden" id="time-dropdown-departure">
+              <div class="time-picker">
+                <div class="picker-col" id="picker-dep-hour"></div>
+                <div class="picker-sep">:</div>
+                <div class="picker-col" id="picker-dep-minute"></div>
+                <div class="picker-col picker-col-ampm" id="picker-dep-ampm"></div>
+                <div class="picker-highlight"></div>
+                <div class="picker-fade picker-fade-top"></div>
+                <div class="picker-fade picker-fade-bottom"></div>
+              </div>
             </div>
             <input type="hidden" name="dep-time" id="dep-time" value="12:00 PM">
           </div>
