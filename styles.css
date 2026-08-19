@@ -12,7 +12,7 @@ button,input,select{font:inherit}button{cursor:pointer;-webkit-tap-highlight-col
 .hero-tint{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(61,22,34,0) 0%,rgba(61,22,34,.03) 35%,rgba(61,22,34,.15) 55%,rgba(61,22,34,.78) 84%,rgba(61,22,34,1) 100%);pointer-events:none}
 .grain{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.04}
 .hero-top{position:absolute;z-index:10;top:calc(20px + env(safe-area-inset-top));left:20px;right:20px;display:flex;justify-content:space-between;align-items:center}
-.monogram{font:500 25px "Cormorant Garamond",serif;letter-spacing:.08em}.monogram i{font-style:normal;color:var(--gold-light);font-size:15px}.logo-img{height:36px;width:auto;object-fit:contain;border-radius:50%}.invite-label{font-size:8px;letter-spacing:.2em;opacity:.8}
+.monogram{font:500 25px "Cormorant Garamond",serif;letter-spacing:.08em}.monogram i{font-style:normal;color:var(--gold-light);font-size:15px}.logo-img{height:52px;width:auto;object-fit:contain;border-radius:50%}.invite-label{font-size:8px;letter-spacing:.2em;opacity:.8}
 .hero-content{position:relative;z-index:5;width:100%;padding:50dvh 20px calc(28px + env(safe-area-inset-bottom));text-align:center}
 .kicker{margin:0 0 8px;font-size:8px;font-weight:700;letter-spacing:.25em}
 .section-kicker{margin:0 0 8px;font-size:10px;font-weight:700;letter-spacing:.25em}
