@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const successTitle = document.getElementById('successTitle');
       const successText = document.getElementById('successText');
       if (successTitle) successTitle.innerText = "We'll miss you!";
-      if (successText) successText.innerText = "Thank you for letting us know. We'll be thinking of you!";
+      if (successText) successText.innerText = "#MillieRaghavKoMillie";
     }
     showScreen('success');
   }

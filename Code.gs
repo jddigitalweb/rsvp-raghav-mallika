@@ -18,7 +18,7 @@ function doPost(e){
     const headers=[
       "Timestamp","RSVP","Name","Phone","Date of Arrival","Time of Arrival",
       "Date of Departure","Coming From","Mode of Transport",
-      "Mayra Lunch","Sangeet","Haldi","Reception"
+      "Mayra Lunch","Sangeet","Haldi","Reception","Breakfast"
     ];
 
     if(sheet.getLastRow()===0){
@@ -40,7 +40,8 @@ function doPost(e){
       p.mayra==="Yes"?"Yes":"No",
       p.sangeet==="Yes"?"Yes":"No",
       p.haldi==="Yes"?"Yes":"No",
-      p.reception==="Yes"?"Yes":"No"
+      p.reception==="Yes"?"Yes":"No",
+      p.breakfast==="Yes"?"Yes":"No"
     ]);
 
     return response({ok:true});
